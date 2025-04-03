@@ -1,0 +1,32 @@
+Fichero parteIII.txt – Tablas y relaciones necesarias
+
+Para implementar todas las funcionalidades del sistema de pedidos, serían necesarias las siguientes tablas:
+
+🔹 TABLAS
+
+1. USUARIOS
+   - idUsuario (PK)
+   - nombre
+
+2. PRODUCTOS
+   - idProducto (PK)
+   - nombre
+   - precio
+   - ventas (acumulador de veces pedido)
+
+3. PEDIDOS
+   - idPedido (PK)
+   - idUsuario (FK → USUARIOS)
+   - fecha
+   - estado (ej. "pendiente", "servido")
+
+4. PRODUCTOS_PEDIDO (Tabla intermedia para pedidos con múltiples productos)
+   - idPedido (FK → PEDIDOS)
+   - idProducto (FK → PRODUCTOS)
+   - cantidad
+
+🔗 RELACIONES
+
+- 1 Usuario ⟶ N Pedidos
+- 1 Pedido ⟶ N Productos (con cantidades)
+- 1 Producto ⟶ N Pedidos (múltiples veces, a través de la tabla intermedia)
